@@ -10,16 +10,37 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <li>
-        <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "log in", new_user_session_path %>
-      </li>
-    <% end %>
+    <header style="background-color: #343a40;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <%= link_to "Bookers", root_path %>
+          </div>
+          <div class="col-md-8">
+            <ul class="ml-auto ">
+              <li>
+                <%= link_to "Home", root_path %>
+              </li>
+              <li>
+                <%= link_to "Users", root_path %>
+              </li>
+              <li>
+                <%= link_to "Books", root_path %>
+              </li>
+              <li>
+                <% if user_signed_in? %>
+                    <%= link_to "logout", destroy_user_session_path, method: :delete %>
+                <% else %>
+                  <li>
+                    <%= link_to "log in", new_user_session_path %>
+                  </li>
+                <% end %>
+              </li>
+            </ul>
+         </div>
+        </div>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
