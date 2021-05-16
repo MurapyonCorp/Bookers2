@@ -5,11 +5,6 @@ Rails.application.routes.draw do
   # get 'books/show'
   # get 'books/edit'
   # get 'books/destroy'
-  # get 'new/create'
-  # get 'new/index'
-  # get 'new/show'
-  # get 'new/edit'
-  # get 'new/destroy'
   devise_for :users, controllers: {
     sessions: 'devise/sessions',
     registrations: 'devise/registrations'
