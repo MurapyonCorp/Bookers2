@@ -11,9 +11,9 @@ class UsersController < ApplicationController
 
   end
 
-  private
+  # private
 
-  def user_params
-    params.require(:user).permit(:title, :body)
-  end
+  # def user_params
+  #   params.require(:user).permit(:title, :body)
+  # end
 end

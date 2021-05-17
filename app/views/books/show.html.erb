@@ -9,7 +9,7 @@
           <tbody>
             <tr>
               <td>
-                <%= link_to image_tag("no_image.jpg"), user_path(user.id) %>
+                <%= link_to image_tag("no_image.jpg"), user_path(:id) %>
               </td>
               <td><%= link_to @book.title %></td>
               <td><%= @book.body %></td>
