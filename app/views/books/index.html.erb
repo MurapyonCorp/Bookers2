@@ -1,6 +1,8 @@
 <main>
   <p id="notice"></p>
   <div class="container px-5 px-sm-0">
+    <% if @book.error.any? %>
+
     <div class="row">
       <%= render '/layouts/list', user: @user, book: @book %>
       <div class="col-md-8 offset-md-1">
@@ -19,7 +21,7 @@
             <tr>
               <td>
                 <%= link_to user_path(current_user)  do %>
-                  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg"%>
+                  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
                 <% end %>
               </td>
               <td>
