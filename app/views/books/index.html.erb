@@ -1,7 +1,7 @@
 <main>
   <p id="notice"></p>
   <div class="container px-5 px-sm-0">
-    <% if @book.error.any? %>
+    <% if @book.errors.any? %>
     <div id="error_explanation">
       <h3><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h3>
       <ul>
