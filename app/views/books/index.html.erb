@@ -2,7 +2,17 @@
   <p id="notice"></p>
   <div class="container px-5 px-sm-0">
     <% if @book.error.any? %>
-
+    <div id="error_explanation">
+      <h3><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h3>
+      <ul>
+          <% @book.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+          <% end %>
+      </ul>
+    </div>
+    <% end %>
     <div class="row">
       <%= render '/layouts/list', user: @user, book: @book %>
       <div class="col-md-8 offset-md-1">
