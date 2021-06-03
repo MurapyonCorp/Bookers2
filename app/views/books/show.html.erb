@@ -25,6 +25,20 @@
             </tr>
           </tbody>
         </table>
+        <div class="comments">
+          <p>コメント件数：<%= @book.book_comments.count %></p>
+          <% @book.book_comments.each do |book_comment| %>
+            <p><%= image_tag(@user) %></p>
+            <%= book_comment.user.name %>
+            <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= book_comment.comment %>
+          <% end %>
+        </div>
+        <div class="new-comment">
+          <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
+            <%= f.text_area :comment, rows:'5' %>
+            <%= f.submit "送信" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
