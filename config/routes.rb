@@ -3,7 +3,13 @@ Rails.application.routes.draw do
     sessions: 'devise/sessions',
     registrations: 'devise/registrations'
   }
-  resources :users
+  resources :users do
+  # ——————————————— ここから ———————————————
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  # ——————————— ここまでネストさせる ———————————
+  end
   get "home/about" => "homes#about"
   root to: 'homes#top'
   # resources :post_images, only: [:new, :create, :index, :show, :destroy]
