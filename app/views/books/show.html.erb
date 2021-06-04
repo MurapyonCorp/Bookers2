@@ -23,21 +23,7 @@
                 <td><%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-success" %></td>
                 <td><%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？", class:"btn btn-sm btn-danger" %></td>
               <% end %>
-              <td>
-                <% if @book.favorited_by?(current_user) %>
-                  <p>
-                    <%= link_to book_favorites_path(@book), method: :delete do %>
-                      <span class="color">♥<%= @book.favorites.count %></span>
-                    <% end %>
-                  </p>
-                <% else %>
-                  <p>
-                    <%= link_to book_favorites_path(@book), method: :post do %>
-                      ♡<%= @book.favorites.count %>
-                    <% end %>
-                  </p>
-                <% end %>
-              </td>
+              <td id="favorite_buttons_<%= @book.id %>"><%= render '/layouts/favorite', book: @book %></td>
               <td>コメント数：<%= @book.book_comments.count %></td>
             </tr>
           </tbody>
