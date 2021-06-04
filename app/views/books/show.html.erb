@@ -6,6 +6,7 @@
     <div class="row">
       <%= render '/layouts/list', user: @user, book: @book_new %>
       <div class="col-md-8 offset-md-1">
+        <%= render 'layouts/searchbar' %>
         <h2>Book detail</h2>
         <table class="table">
           <tbody>
@@ -63,7 +64,7 @@
         </table>
         <div class="new-comment">
           <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
-            <%= f.text_area :comment, rows:'5', class: "form-control" %>
+            <%= f.text_area :comment, rows:'5', class:"form-control" %>
             <%= f.submit "送信" %>
           <% end %>
         </div>
