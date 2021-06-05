@@ -1,3 +1,2 @@
 $("textarea").val("");
-$("input").val("");
-$('#comments_index').html("<%= j(render 'book_comment', book_comments: @book_comments) %>")
+$('#comments_index').html("<%= j(render 'layouts/book_comment', book: @book) %>")

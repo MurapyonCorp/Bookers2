@@ -1,1 +1,1 @@
-$('#comments_index_<%= book_comment.id %>').html("<%= j(render '/layouts/book_comment', book_comment: book_comment) %>");
+$('#comments_index').html("<%= j(render 'layouts/book_comment', book: @book) %>");
