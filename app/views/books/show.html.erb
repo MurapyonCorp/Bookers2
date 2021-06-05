@@ -33,17 +33,14 @@
         <table class="comments">
           <tbody>
             <% @book.book_comments.each do |book_comment| %>
-              <tr id="comments_index_<%= @book.book_comment.id %>">
-                <%= render 'layouts/book_comment', book.book_comment: book.book_comment %>
+              <tr id="comments_index">
+                <%= render '/layouts/book_comment', book_comment: book_comment %>
               </tr>
             <% end %>
           </tbody>
         </table>
         <div class="new-comment">
-          <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
-            <%= f.text_area :comment, rows:'5', class:"form-control"%>
-            <%= f.submit "送信" %>
-          <% end %>
+          <%= render '/layouts/new_comment', book: @book, book_comment: @book_comment %>
         </div>
       </div>
     </div>
