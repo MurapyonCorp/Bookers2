@@ -64,6 +64,8 @@ Rails.application.configure do
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
   config.hosts << "f62c3d5b81ff44aea15b7ffee98166a5.vfs.cloud9.us-east-1.amazonaws.com"
+  
+  config.hosts << "cde2360d9667491985e5f1c27d4381d2.vfs.cloud9.us-east-1.amazonaws.com"
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
   config.hosts << "20d721e213de44b79c3acdb8e6763bba.vfs.cloud9.us-east-1.amazonaws.com"

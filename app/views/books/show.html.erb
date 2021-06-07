@@ -20,12 +20,25 @@
                 <%= link_to @book.title %>
               </td>
               <td><%= @book.body %></td>
+              <td>コメント数: <%= @book.book_comments.count %></td>
               <% if @user == current_user %>
                 <td>
-                  <%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-success" %>
+                  <%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-sm btn-danger" %>
                 </td>
                 <td>
-                  <%= link_to "Destroy", book_path(@book),method: :delete, "data-confirm" => "本当に消しますか？", class:"btn btn-sm btn-danger" %>
+                  <%= link_to "Destroy", book_path(@book),method: :delete, "data-confirm" => "本当に消しますか？", class:"btn btn-sm btn-warning" %>
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <tbody>
+            <tr>
+              <% @book.book_comments.each do |book_comments| %>
+                <td>
+                  <%= link_to user_path(book_comment.user) %>ここから
+                  <%= attachment_image_tag book_comments, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
                 </td>
               <% end %>
             </tr>

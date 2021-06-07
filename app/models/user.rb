@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   validates :name, uniqueness: true, length: { minimum: 2, maximum: 20 }
   validates :introduction, length: { maximum: 50 }
+  has_many :book_comments, dependent: :destroy
 end
