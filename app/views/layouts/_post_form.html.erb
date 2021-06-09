@@ -12,10 +12,34 @@
         <th>introduction</th>
         <th><%= user.introduction %></th>
       </tr>
+      <tr>
+        <th>follow</th>
+        <th>
+          <%= link_to user_followings_path(user) do %>
+            <%= user.followings.count %>
+          <% end %>
+        </th>
+      </tr>
+      <tr>
+        <th>follower</th>
+        <th>
+          <%= link_to user_followers_path(user) do %>
+           <%= user.followers.count %>
+          <% end %>
+        </th>
+      </tr>
     </tbody>
   </table>
   <div class="row">
-    <%= link_to "", edit_user_path(user), class:"btn btn-outline-primary btn-block fas fa-user-cog" %>
+    <% if user == current_user %>
+      <%= link_to "", edit_user_path(user), class:"btn btn-outline-primary btn-block fas fa-user-cog" %>
+    <% else %>
+      <% if current_user.following?(user) %>
+        <%= link_to "Unfollow", user_relationships_path(user.id), method: :delete, class:"btn btn-outline-warning btn-block" %>
+      <% else %>
+        <%= link_to "Follow", user_relationships_path(user.id), method: :post, class:"btn btn-outline-danger btn-block" %>
+      <% end %>
+    <% end %>
   </div>
   <h2 class="mt-3">New book</h2>
   <%= form_with model: book, local:true do |f| %>
